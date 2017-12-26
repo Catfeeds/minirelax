@@ -1,0 +1,58 @@
+<!-- <view class="activities">
+  原版阅读VIP权限
+</view>
+<view class="text_value">
+  <text>1）原版阅读半年会员，可畅听小程序上的所有课程内容（持续更新）</text>
+</view>
+<view class="text_value">
+  <text>2) 赠送【单词拼读规律】、【系统音标】2门基础课（视频讲解，永久有效）</text>
+</view>
+<view class="text_value">
+  <text>3）加入VIP课程，学习每日原版书刊、影音的句子讲解</text>
+</view>
+<view class="text_value">
+  <text>4）享有权限以¥499的优惠价购买原价¥1666的【语法精华课程】全套（含152个语法点的视频讲解，永久有效）</text>
+</view>
+<view class="text_value">
+  <text>5）完成会员活动任务，可获全额返现</text>
+</view>
+<view class="text_value">
+  <text>VIP会员价格：¥599/半年</text>
+</view>
+<view class="text_value">
+  <text>确认支付后请添加服务微信 haihai11</text>
+</view>
+<view class="text_value" style="text-align:center;">
+<view class="pi" bindtap="buynow" wx:if="{{openstate>0}}">
+    成为会员
+</view>
+</view> -->
+
+<view class="myToast"   >
+  <view style="font-size:32rpx;margin:30rpx 0; text-align:center;"> 原版阅读VIP权限</view>
+  <view class="drawer_content">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="content_top" >
+        <view style="text-align:center;font-size:32rpx;">畅听VIP版 </view>
+        <view  class="cc">畅听小程序上所有课程，持续更新</view>
+        <view class="textCent">
+          <view><radio value="4"/>￥99/30天</view>
+          <view><radio value="5" />￥199/90天</view>
+          <view><radio value="6"/>￥359/180天</view>
+        </view>
+      </view>
+      <view class="content_bottom">
+        <view style="text-align:center;font-size:32rpx;">高级VIP版</view>
+        <view class="cc">畅听+VIP口语课+国际群纯英文聊天</view>
+          <view class="textCent">
+            <view><radio value="7"/>￥900/30天</view>
+            <view><radio value="8"/>￥1800/180天</view>
+          </view>
+      </view>
+      <view style="margin-top:5rpx;font-size:26rpx;">确认支付后请添加服务微信 haihai11</view>
+    </radio-group>
+ </view> 
+ <view class="button_ok" data-statu="close"  bindtap="buynow" data-otype="2">
+  <button>成为会员</button>
+ </view>
+</view>

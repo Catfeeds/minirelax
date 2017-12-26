@@ -1,0 +1,53 @@
+<!-- 讲读版--数据 -->
+      <scroll-view  scroll-y style="height:99%;">
+        <view class="nodata" wx:if="{{list==''}}" >该分类下没有找到更多数据</view>
+
+        <!--免费版-->
+        <view class="container_a" bindtap="bindViewTa" wx:for="{{list}}" wx:key="{{index}}" data-id="{{pro.id}}" wx:for-item="pro" data-name="{{pro.name}}" wx:if="{{list}}" data-isfree="{{pro.is_free}}" data-ctype="{{pro.ctype}}">
+          <image class="bo" src="{{pro.photo_x}}"></image>
+          <view class="second">
+            <view class="second_one">
+              <text wx:if="{{pro.is_free>1 && userType<=1}}" style="color:#ccc;">{{pro.name}}</text>
+              <text wx:else>{{pro.name}}</text>
+            </view>
+            <view class="second_two">
+              {{pro.intro}}
+            </view>
+          </view>
+          <view class="time">{{pro.desc}}</view>
+        </view>
+        <!-- <view class="getmore" bindtap="gd" wx:if="{{list.length>=9}}">点击查看更多</view> -->
+      </scroll-view>
+      <view class="cx" bindtap="aa" hidden="{{nullHouse}}">
+</view>
+<!--支付  -->
+
+<view class="cx" bindtap="aa" hidden="{{nullHouseSS}}">
+</view>
+
+
+<view class="myToast"  style="border:1px solid #eee;" hidden="{{nullHouseSS}}">
+  <view style="font-size:32rpx;margin:30rpx 0; text-align:center;"> 原版阅读VIP权限</view>
+  <view class="drawer_content">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="content_top" >
+        <view style="text-align:center;font-size:32rpx;">畅听VIP版 </view>
+        <view>畅听小程序上所有课程，持续更新</view>
+        <view><radio value="4"/>￥99/30天</view>
+        <view><radio value="5" />￥199/90天</view>
+        <view><radio value="6"/>￥359/180天</view>
+      </view>
+      <view class="content_bottom">
+        <view style="text-align:center;font-size:32rpx;">高级VIP版</view>
+        <view>畅听+VIP口语课+国际群纯英文聊天</view>
+        <view><radio value="7"/>￥900/30天</view>
+        <view><radio value="8"/>￥1800/180天</view>
+      </view>
+      <view style="margin-top:5rpx;font-size:26rpx;">确认支付后请添加服务微信 haihai11</view>
+    </radio-group>
+ </view> 
+ <view class="button_ok" data-statu="close"  bindtap="buynow" data-otype="2">确认支付</view>
+</view>
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+

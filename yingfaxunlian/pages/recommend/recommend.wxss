@@ -1,0 +1,463 @@
+page {
+  background: #fff;
+  height: 100%;
+  font-family: "微软雅黑";
+}
+/*顶部*/
+
+.tou {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  background: #f2f2f2;
+  font-size: 30rpx;
+  /*居中*/
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  z-index: 999;
+}
+
+.touu {
+  width: 100%;
+  height: 40px;
+}
+.sss{
+ white-space: nowrap;
+width:650rpx;
+
+}
+.tou image {
+  margin: 0 25rpx;
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.title {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  font-size: 32rpx;
+  width: 100%;
+  height: 20px;
+}
+
+.shu {
+  font-weight: 70;
+  margin-left: 20rpx;
+}
+
+.container_a {
+  width: 100%;
+  display: flex;
+  height: 150rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.bo {
+  width: 24%;
+  height: 76%;
+  margin: 20rpx;
+  margin-left: 35rpx;
+}
+
+.second {
+  width: 51%;
+}
+
+.second_one {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+}
+
+.second_one text {
+  display: block;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "微软雅黑";
+}
+
+.second_two {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  font-size: 26rpx;
+  color: #ccc;
+  line-height: 60rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.time {
+  width: 25%;
+  line-height: 192rpx;
+  text-align: center;
+  color: #999;
+  font-size: 23rpx;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+
+/*线*/
+
+.xian {
+  height: 30rpx;
+  width: 100%;
+  background: #f2f2f2;
+}
+
+.slideshow {
+  position: fixed;
+  top: 0rpx;
+  left: 100rpx;
+  background: #000;
+}
+
+.gd {
+  float: right;
+  margin-right: 20rpx;
+  color: #ccc;
+}
+
+/*属性*/
+
+.shuxing {
+  width: 100%;
+  height: 25px;
+  background: #fff;
+  font-size: 30rpx;
+  padding: 10px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-family: '微软雅黑';
+}
+
+.font_14 {
+  font-size: 27rpx;
+}
+
+.shu_img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20px;
+}
+
+.shuxing .ac {
+  transform: rotate(90deg);
+}
+
+.shuxing .acc {
+  transform: rotate(90deg);
+}
+
+.shuxing .accc {
+  transform: rotate(90deg);
+}
+
+.scroll_cont {
+  margin: 20rpx 0;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.scrll_a {
+  display: flex;
+  align-items: center;
+}
+
+.scrll_a .imagess {
+  height: 58rpx;
+  width: 58rpx;
+  border-radius: 50%;
+  margin-left: 20rpx;
+  margin-right: 30rpx;
+}
+
+.scrll_aa {
+  flex: 0.9;
+  display: flex;
+}
+
+.scrll_aa text {
+  font-size: 32rpx;
+  padding-left: 15rpx;
+}
+
+.ba {
+  font-size: 24rpx;
+  color: #999;
+  padding: 10rpx 10rpx;
+}
+
+.huodong {
+  font-size: 30rpx;
+
+  height: 46rpx;
+  line-height: 46rpx;
+  padding: 10rpx 0 10rpx 30rpx;
+
+
+  background: #f2f2f2;
+display: flex;
+}
+.huodong image{
+   width: 50rpx;
+   height:40rpx;
+margin: 0 10rpx;
+
+
+}
+.scrll_b {
+  width: 91%;
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  line-height: 43rpx;
+  display: flex;
+}
+
+.pinglin {
+  display: flex;
+  font-size: 30rpx;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex: 0.2;
+}
+
+.kls {
+  width: 100%;
+  text-align: right;
+
+}
+.klss{
+   font-size: 28rpx;
+}
+.pinglins {
+  display: inline-block;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+}
+
+.pxs {
+  display: flex;
+  align-items: center;
+}
+
+.pinglins image {
+  height: 40rpx;
+  width: 40rpx;
+  padding: 0 10rpx;
+}
+
+.pinglin image {
+  height: 30rpx;
+  width: 30rpx;
+  margin:0 10rpx; 
+}
+
+.tiwen {
+  width: 20%;
+  text-align: center;
+  font-size: 30rpx;
+  border: 1rpx solid #ccc;
+  margin: 0 auto;
+  padding: 10rpx;
+  margin-top: 20rpx;
+}
+
+.tiwenqu {
+  border-bottom: 1rpx solid #ccc;
+  padding-bottom: 20rpx;
+  height: 98%;
+}
+
+.vips {
+  height:20rpx;
+width:20rpx;
+margin-left:2rpx;
+margin-top:4rpx;
+background: #fff;
+}
+
+/*mask*/
+
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/*content*/
+
+.drawer_box {
+  width: 650rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 45%;
+  left: 0;
+  z-index: 1001;
+  background: #fff;
+  margin: -150px 50rpx 0 50rpx;
+  border-radius: 3px;
+  font-family: '微软雅黑';
+}
+
+.drawer_title {
+  padding: 10px;
+  font-size: 35rpx;
+  text-align: center;
+  /*padding-bottom: 0rpx;*/
+  border-bottom: 1rpx solid #fafafa;
+
+}
+
+.drawer_titles {
+  font-size: 30rpx;
+  /*text-align: center;*/
+  margin: 20rpx 0;
+  margin-top: 0;
+  padding: 20rpx 20rpx;
+
+  /* text-indent: 0.6cm; */
+
+}
+
+.btn_ok {
+  padding: 10rpx 0;
+  margin: 20rpx;
+  font: 35rpx "microsoft yahei";
+  text-align: center;
+  border: 1rpx solid #dedede;
+  border-radius: 10rpx;
+  width: 100%;
+}
+
+.bang {
+  display: flex;
+  justify-content: center;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+
+.nodata {
+  font-size: 30rpx;
+  color: gray;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.getmore {
+  font-size: 30rpx;
+  color: gray;
+  text-align: center;
+  margin-top: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+  padding-bottom: 20rpx;
+}
+
+.tewss {
+  display: flex;
+}
+
+.jjj {
+  padding-left: 40rpx;
+}
+
+.zhiding{
+   display: flex;
+   margin-right: 20rpx;
+
+}
+.zhiding image{
+height:38rpx;
+width:55rpx;
+
+
+}
+
+.zhiding_a{
+   font-size: 26rpx;
+   border: 1rpx solid red;
+
+}
+
+
+.wenzi{
+   font-size: 32rpx;
+   width: 80%;
+   padding-top: 20rpx;
+   text-indent: 2em;
+   text-align: center;
+}
+ .wenzi_a{
+      width: 100%;
+      padding: 20rpx 0;
+} 
+ .wenzi_a  image{
+     width: 80%;
+     margin: 0 auto;
+     display: block;
+     padding: 10rpx 0;
+} 
+.free {
+   margin-left: 40rpx; 
+}
+/*右侧按钮  */
+
+.right_top image {
+  width: 35rpx;
+  height: 35rpx;
+}
+.right_top view {
+  font-size: 22rpx;
+  font-family: "微软雅黑";
+}
+.right_top  {
+  padding: 5rpx 40rpx;
+  display: inline-block;
+  background: rgba(220,219,219,.6);
+  border-radius: 45%;
+}
+.right {
+  margin-bottom: 10rpx;
+}
+.right_ce {
+  position: fixed;
+  bottom: 160rpx;
+  right: 1px;
+}
+.style {
+  background:  rgba(205,203,203,.9);
+  color: red;
+}
+
+
+.wxParse-p {
+  box-sizing: border-box;
+}
+.wxParse-p image{
+  width: 100% !important;
+}

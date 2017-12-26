@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+
+<view class="main">
+
+<view class="title">
+   <text class="shu" style="color:#ff7043;">▍</text><text>{{mingzi}}</text>
+</view>
+  <view class="container_a"  wx:for="{{list}}" data-name="{{item.name}}" data-id="{{item.id}}"  bindtap="bindViewTa">
+    <image class="bo" src="{{item.photo_x}}"></image>
+    <view class="second">
+      <view class="second_one" >
+        <text >{{item.name}}</text>
+      </view>
+      <view class="second_two">
+        {{item.intro}}
+      </view>
+    </view>
+    <view class="time">{{item.desc}}</view>
+  </view>
+</view>
+</view>

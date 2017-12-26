@@ -1,0 +1,191 @@
+<!--index.wxml-->
+<view class="gonggaobig" wx:if="{{showModalStatuss}}" bindtap="dianji2">
+</view>
+<view class="gonggao" wx:if="{{showModalStatuss}}">
+ <scroll-view scroll-y style="height:700rpx;">
+  <view class="wenzi">
+   老师简介
+  </view>
+  <import src="../../wxParse/wxParse.wxml" />
+  <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:intro.nodes}}" />
+  </view>
+</scroll-view>
+
+</view>
+<view class=" a">
+ <image class="a_img" src="{{info.photo_x}}"></image> 
+<view class="a_name">
+
+</view>
+</view>
+
+ <view class="container" >
+    <scroll-view scroll-y="true" style="height: 940rpx">
+      <view bindtap="bindViewTap" class="music">
+        <view class="xingqing">
+          <view class="title">
+             <image class="title_img" src="{{info.avatar}}" bindtap="title_Img" wx:if="{{ctype!=3 && ptype == ''}}"></image> 
+            <text style="margin-left:20rpx" wx:if="{{ctype!=3 && ptype == ''}}" >{{info.user}}</text>
+            <view class="presentation" hidden="{{presen}}">
+              <view class="send_big_left" ><!-- 信息-->
+                <view class="send_centre">
+                  <import src="../../wxParse/wxParse.wxml" />
+                  <view class="wxParse">
+                    <template is="wxParse" data="{{wxParseData:intro.nodes}}" />
+                  </view> 
+                </view> 
+              </view>
+            </view>
+            <!-- <view class="ping" bindtap="ping">
+              <image class="title_png" src="../images/xie.png"></image>
+              写笔记
+            </view> -->
+          </view>
+        </view>
+      </view>
+
+      <!-- <view class="t" wx:if="{{showStatus==1}}">
+        <view class="pi" bindtap="clickArea" data-otype="2" wx:if="{{userType<2}}">
+          成为会员
+        </view>
+         <view class="pi" bindtap="powerDrawer" data-statu="open" wx:if="{{userType<3}}">
+          学习社群精华版￥977.00
+        </view> 
+      </view> -->
+
+
+
+      <import src="../../wxParse/wxParse.wxml" />
+      <view class="wxParse" style="color:white;">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+      </view>
+
+
+<view class="kuang" wx:if="{{info.english}}">
+      <view class="mingyan">
+      {{info.english}} 
+</view>
+      <view class="mingyan">
+{{info.chinese}}</view>
+
+</view>
+
+    </scroll-view>
+
+    <view class="control_button">
+
+      <view class="section section_gap">
+        <view class="page-body-info">
+          <view class="str"> 
+              {{formatedPlayTime}}
+          </view>
+          <slider left-icon="cancel" right-icon="success_no_circle" class="slider" min="1" max="{{totaltime}}" step="1" value="{{playTime}}" bindchange="seek" activeColor='#FFC125'></slider>
+          <view class="str" wx:if="{{time_total_str}}">{{time_total_str}}</view>
+          <view class="str" wx:else>00:00</view>
+        </view>
+      </view>
+    </view>
+    <view class="control_button1">
+      <!--上一首-->
+      <view class="btns pre_next pre" class="btns pre_next next" bindtap="mytouchmov" bindtouchstart="mytouchstar" bindtouchend="mytouchen">
+        -7
+      </view>
+      <!--播放-->
+      <view class="page-body-buttons">
+        <block wx:if="{{playing === true}}">
+          <view class="page-body-button" bindtap="pause">
+            <image src="../images/zz.png"></image>
+          </view>
+        </block>
+
+        <block wx:if="{{playing === false}}">
+          <view class="page-body-button"></view>
+          <view class="page-body-button" bindtap="play">
+            <image src="../images/pay.png"></image>
+          </view>
+        </block>
+        <view class="page-body-button"></view>
+      </view>
+
+      <!--下一首-->
+      <view class="btns pre_next next" bindtap="listenerButtonGetPlayState">
+        +7
+      </view>
+    </view>
+  </view>
+
+
+
+
+<!-- <view class="cx" bindtap="aa" hidden="{{nullHouse}}">
+
+</view> -->
+
+<!--确认支付  -->
+<view class="hiddens" bindtap="hiddens" data-statu="close" hidden="{{nullHouse}}"></view> 
+<view class="myToast" style="border:1px solid #eee;" hidden="{{nullHouse}}">
+  <view style="font-size:32rpx;margin:30rpx 0; text-align:center;"> 原版阅读VIP权限</view>
+  <view class="drawer_content">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="content_top" >
+        <view style="text-align:center;font-size:32rpx;">畅听VIP版 </view>
+        <view>畅听小程序上所有课程，持续更新</view>
+        <view><radio value="4"/>￥99/30天</view>
+        <view><radio value="5" />￥199/90天</view>
+        <view><radio value="6"/>￥359/180天</view>
+      </view>
+      <view class="content_bottom">
+        <view style="text-align:center;font-size:32rpx;">高级VIP版</view>
+        <view>畅听+VIP口语课+国际群纯英文聊天</view>
+        <view><radio value="7"/>￥900/30天</view>
+        <view><radio value="8"/>￥1800/180天</view>
+      </view>
+      <view style="margin-top:5rpx;font-size:26rpx;">确认支付后请添加服务微信 haihai11</view>
+    </radio-group>
+  </view> 
+  <view class="button_ok" data-statu="close"  bindtap="buynow" data-otype="2">确认支付</view>
+</view>
+
+
+<!-- url="../heart/heart?htype=vclass" -->
+<navigator bindtap="xuanze"  style="right:50rpx;top:75%;"
+  bindtouchend="mytouchend" class="position_img">
+  <image src="../images/write.png" bindtouchmove="viewTouchMove"></image>
+  <!-- <view class="tiwen"> -->
+
+  <!-- </view>
+  <view class="biji">
+    <image src="src"></image>
+  </view> -->
+</navigator>
+
+<!--使用animation属性指定需要执行的动画-->
+<view class="big" wx:if="{{showtextear}}" bindtap="dianji">
+
+</view>
+<view  class="drawer_box" >
+
+
+
+
+<view class="" wx:if="{{showtextear}}">
+  <!--drawer content-->
+ 
+ <!-- <view class="drawer_title" wx:if="{{qtype==1}}">您当前处于英语区</view>
+ <view class="drawer_title" wx:if="{{qtype==2}}">您当前处于法语区</view> -->
+  
+  <view class="drawer_titles">
+   
+    <form bindsubmit="evaSubmit">
+      <textarea placeholder-class="jjj" name="evaContent" maxlength="240" value="{{evaContent}}" class="weui-textarea" placeholder="提示：具体的语言问题最容易获得回答，如某个句子如何理解，某几个词区别是什么等； 泛泛而谈的问题将得不到回答，如英语到底应该怎么学等（1-240字）" />
+      <view class="bang">
+        <button formType="submit" disabled="{{subdisabled}}" class="button_ok" type="primary" size="mini">发布</button>
+      </view>
+    </form>
+  </view>
+</view>
+</view>
+
+
+

@@ -1,0 +1,57 @@
+<view class="boxx">
+    <view class="weui-cell__bd" wx:if="{{playId>0}}">
+      <input class="weui-input" placeholder="请输入文本" name="cb" value="{{name}}" disabled="disabled" />
+    </view>
+
+    <view class="l-evalbox row">
+      <view class="section">
+       <view class='section_big'>
+        <textarea placeholder-style='font-size:25rpx;' maxlength='300' placeholder="您对这本书的想法...(限200字)" name="textarea" bindinput="changeInput" wx:if="{{showtype==1}}" />
+        <textarea placeholder-style='font-size:25rpx;' maxlength='300' placeholder="请输入您的心得体会(限200字)" name="textarea" bindinput="changeInput" wx:else />
+       </view>
+
+        <view class="page-body-info">
+          <!--one-->
+          <view class="kk">
+            <block wx:if="{{imageSrc}}">
+              <image src="{{imageSrc}}" class="image" mode="aspectFit" bindtap="chooseImage"></image>
+            </block>
+            <block wx:else>
+              <view class="image-plus image-plus-nb" bindtap="chooseImage">
+                <image src="../images/s.png" style="width:100%;height:100%"></image>
+              </view>
+            </block>
+          </view>
+          <!--two-->
+          <view class="kk">
+            <block wx:if="{{image}}">
+              <image src="{{image}}" class="image" mode="aspectFit" bindtap="choose"></image>
+            </block>
+            <block wx:else>
+              <view class="image-plus image-plus-nb" bindtap="choose">
+                <image src="../images/s.png" style="width:100%;height:100%"></image>
+              </view>
+            </block>
+          </view>
+
+          
+              <view class="kk">
+            <block wx:if="{{img}}">
+              <image src="{{img}}" class="image" mode="aspectFit" bindtap="choo"></image>
+            </block>
+            <block wx:else>
+              <view class="image-plus image-plus-nb" bindtap="choo">
+                <image src="../images/s.png" style="width:100%;height:100%"></image>
+              </view>
+            </block>
+          </view>
+
+
+        </view>
+      </view>
+    </view>
+<view class="dibu">
+  <!-- <button bindtap="bindFormSubmit" data-btype="1">保存 </button>  -->
+  <button bindtap="bindFormSubmit" data-btype="2">发布 </button>
+</view>
+</view>

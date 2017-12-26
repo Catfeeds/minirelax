@@ -1,0 +1,45 @@
+
+    <view class="tou" wx:if="{{currentName}}">
+      <image src="../images/er.png"></image>
+      <text bindtap="bindCurrent" data-id="{{currentId}}" wx:if="{{currentName}}">当前收听：{{currentName}}</text>
+      <text wx:else>当前收听：无</text>
+    </view>
+    <view class="tou" wx:else>
+      <image src="../images/er.png"></image>
+      <text bindtap="bindCurrent" data-id="{{info.id}}" wx:if="{{info.name}}">上次收听：{{info.name}}</text>
+      <text wx:else>上次收听：无</text>
+    </view>
+   
+
+<!--改版  -->
+<view class="layout">
+  <view class="background" wx:for="{{list}}" bindtap="tiaoz" data-id="{{item.id}}" data-cattype="{{item.cattype}}" data-count="{{item.tcat}}" data-title="{{item.name}}" wx:key="{{index}}">
+    <view class="bag_img">
+      <image src="{{item.backimg}}"></image>
+    </view>
+     <view class="layout_big">
+      <view class="layout_img">
+        <image src="{{item.img}}"></image>
+      </view>
+      <view class="layout_right">
+        <view class="layout_name">{{item.name}}<!-- <text class="red"></text>--></view>
+        <view class="layout_recommend">{{item.desc}}</view>
+      </view>
+    </view> 
+  </view>
+</view>
+
+<!--第一次加载弹窗  -->
+<view class="one" hidden="{{tanchuang}}">
+  <view class="one_big" bindtap="guanbi">
+  </view>
+  <view class="one_content">
+    <view style="margin-bottom:20rpx;">免费功能</view>
+    <view style="margin-bottom:12rpx;">免费课：非灰色标题</view>
+    <view style="margin-bottom:12rpx;">提问区：可获得专业解答</view>
+    <view style="margin-bottom:12rpx;">笔记功能：个人笔记云平台</view>
+  </view>
+</view>
+
+
+

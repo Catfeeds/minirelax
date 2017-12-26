@@ -1,0 +1,137 @@
+<!--提问区-->
+      <view class="tiwenqu">
+        <scroll-view scroll-y style="height:100%;" class="scroll_tiwen">
+ <view class="huodong"  >
+            <!--<text>活动公告</text>-->
+            <scroll-view class="sss" scroll-left="{{num}}" scroll-x bindscroll="scll" data-statu="opens" bindtap="powerDrawers">
+       <view class="klss" style="width:{{width}}px;">活动公告:{{notice.ename}}
+          </view>
+          </scroll-view>
+            <!--活动公告-->
+          </view>
+          <!--1-->
+          <scroll-view  scroll-y style="height:99%;">
+          <view class="scroll_cont" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list}}" data-qid="{{item.id}}">
+            <view class="scrll_a">
+              <image class="imagess" src="{{item.avatar}}" bindtap="userinfo" data-userid="{{item.uid}}"></image>
+              <view class="scrll_aa">
+                <view class='scrll_xuexi'>
+                  <text bindtap="userinfo" data-userid="{{item.uid}}">{{item.name}}</text>
+                  <text class='ziti_v' style="color:#ff5722;font-size:24rpx;" wx:if="{{item.utype>1}}">V</text>
+                  <view class="ba">发布于{{item.addtime}}</view>
+                </view>
+                <view class='xuexi' wx:if="{{item.pro_id>0}}">
+                  <text>学习了</text><text style='color:#f6b30a;' data-title="{{item.pro_name}}" bindtap="pro" data-proid="{{item.pro_id}}">{{item.pro_name}}</text>
+                </view>
+              </view>
+              <view class="pinglin" bindtap="pinglun" data-qid="{{item.id}}" wx:if="{{item.nums>0}}">
+                <image src="../images/gous.png"></image>
+                <text style="font-size:26rpx;">已答</text>
+              </view>
+            </view>
+            <!--1-->
+            <view class="scrll_b" bindtap="pinglun" data-qid="{{item.id}}">
+              <view class="zhiding" wx:if="{{item.is_top>0}}">
+                <image src="../images/dingzhi.png"></image>
+              </view>
+              {{item.content}}
+            </view>
+          </view>
+           <view class="getmore" bindtap="getMoreque" wx:if="{{list.length>=9}}">点击查看更多</view> 
+      </scroll-view>
+          <!--右侧按钮  -->
+          <view class="right_ce" >
+            <view class="right">
+              <view class="right_top {{style}}" bindtap="yingyu">
+                <!-- <image src="../images/yinyu.png"></image> -->
+                <view class="right_font">英语</view>
+              </view>
+            </view>
+            <view class="right">
+              <view class="right_top {{yangshi}}" bindtap="fayu">
+                <!-- <image src="../images/fayu.png"></image> -->
+                <view class="right_font">法语</view>
+              </view>
+            </view>
+            <view class="right">
+              <view class="right_bottom" data-statu="open" bindtap="powerDrawer">
+                <image src="../images/tiwen.png"></image>
+                <view>提问</view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      
+<!--提示框1-->
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatuss}}"></view>
+
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" >
+
+<view class="" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+ 
+ <view class="drawer_title" wx:if="{{qtype==1}}">您当前处于英语区</view>
+ <view class="drawer_title" wx:if="{{qtype==2}}">您当前处于法语区</view>
+  
+  <view class="drawer_titles">
+   
+    <form bindsubmit="evaSubmit">
+      <textarea placeholder-class="jjj" fixed="true" name="evaContent" maxlength="240" value="{{evaContent}}" class="weui-textarea" placeholder="提示：具体的语言问题最容易获得回答，如某个句子如何理解，某几个词区别是什么等； 泛泛而谈的问题将得不到回答，如英语到底应该怎么学等（1-240字）" />
+      <view class="bang">
+        <button formType="submit" disabled="{{subdisabled}}" class="btn_ok" type="primary" size="mini">发布</button>
+      </view>
+    </form>
+  </view>
+</view>
+
+
+<view class="" wx:if="{{showModalStatuss}}">
+ <scroll-view scroll-y style="height:700rpx;">
+  <view class="wenzi">
+    {{notice.uname}}
+  </view>
+  <import src="../../wxParse/wxParse.wxml" />
+  <view class="wxParse" style="font-size:28rpx;padding:20rpx;">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+  </view>
+</scroll-view>
+
+</view>
+
+</view>
+
+<modal title="" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消"
+  bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">您的20次免费提问机会已用完，成为VIP可不限次提问</modal>
+  <!--支付  -->
+
+<view class="cx" bindtap="aa" hidden="{{nullHouse}}">
+
+</view>
+
+<view class="myToast"  style="border:1px solid #eee;" hidden="{{nullHouse}}">
+  <view style="font-size:32rpx;margin:30rpx 0; text-align:center;"> 原版阅读VIP权限</view>
+  <view class="drawer_content">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="content_top" >
+        <view style="text-align:center;font-size:32rpx;">畅听VIP版 </view>
+        <view>畅听小程序上所有课程，持续更新</view>
+        <view><radio value="4"/>￥99/30天</view>
+        <view><radio value="5" />￥199/90天</view>
+        <view><radio value="6"/>￥359/180天</view>
+      </view>
+      <view class="content_bottom">
+        <view style="text-align:center;font-size:32rpx;">高级VIP版</view>
+        <view>畅听+VIP口语课+国际群纯英文聊天</view>
+        <view><radio value="7"/>￥900/30天</view>
+        <view><radio value="8"/>￥1800/180天</view>
+      </view>
+      <view style="margin-top:5rpx;font-size:26rpx;">确认支付后请添加服务微信 haihai11</view>
+    </radio-group>
+ </view> 
+ <view class="button_ok" data-statu="close"  bindtap="buynow" data-otype="2">确认支付</view>
+</view>

@@ -1,0 +1,74 @@
+<div class="aaa_pts_left_1" onclick="left_open(this,'zh')">综合管理</div>
+<div class="aaa_pts_left_3" style="display:none;" id="zh">
+ <ul class="aaa_pts_left_2">
+   <li>
+       <a href="{:U('More/pweb_gl')}" target="iframe">前台管理</a>
+   </li>
+   <!-- <li>
+       <a href="{:U('More/index')}" target="iframe">APP首页设置</a>
+   </li> -->
+   <li>
+       <a href="{:U('More/setup')}" target="iframe">小程序配置</a>
+   </li>
+ </ul>
+</div>
+
+<div class="aaa_pts_left_1" onclick="left_open(this,'user')">会员管理</div>
+<div class="aaa_pts_left_3" style="display:none;" id="user">
+   <ul class="aaa_pts_left_2">
+     <li><a href="{:U('User/index')}" target="iframe">普通会员管理</a></li>
+     <li><a href="{:U('User/moneyuser')}" target="iframe">支付会员管理</a></li>
+     <li><a href="{:U('User/study')}" target="iframe">会员笔记</a></li>
+     <li><a href="{:U('User/question')}" target="iframe">会员问题管理</a></li>
+   </ul>
+</div>
+
+<div class="aaa_pts_left_1" onclick="left_open(this,'product')">音频管理</div>
+<div class="aaa_pts_left_3" style="display:none;" id="product">
+ <ul class="aaa_pts_left_2">
+   <li>
+       <a href="{:U('ProCat/add')}" target="iframe">添加音频分类</a>
+   </li>
+   <li>
+       <a href="{:U('ProCat/index')}" target="iframe">音频分类管理</a>
+   </li>
+   <li>
+       <a href="{:U('Product/add')}" target="iframe">添加音频</a>
+   </li>
+   <li>
+       <a href="{:U('Product/index')}" target="iframe">音频管理</a>
+   </li>
+ </ul>
+</div>
+
+
+<div class="aaa_pts_left_1" onclick="left_open(this,'order')">订单管理</div>
+<div class="aaa_pts_left_3" style="display:none;" id="order">
+ <ul class="aaa_pts_left_2">
+   <li>
+       <a href="{:U('Order/index')}" target="iframe">全部订单</a>
+   </li>
+ </ul>
+</div>
+
+<!-- <div class="aaa_pts_left_1" onclick="left_open(this,'advertisement')">广告管理</div>
+<div class="aaa_pts_left_3" style="display:none;" id="advertisement">
+ <ul class="aaa_pts_left_2">
+   <li>
+      <a href="{:U('Guanggao/index')}" target="iframe">广告管理</a>
+   </li>
+   <li>
+    <a href="{:U('Guanggao/add')}" target="iframe">添加广告</a>
+   </li>
+ </ul>
+</div> -->
+
+<?php if(intval($_SESSION['admininfo']['qx'])==4) { ?>
+<div class="aaa_pts_left_1" onclick="left_open(this,'adminuser')">管理员管理</div>
+<div class="aaa_pts_left_3" style="display:none;" id="adminuser">
+   <ul class="aaa_pts_left_2">
+     <li><a href="{:U('Adminuser/add')}" target="iframe">添加管理员</a></li>
+     <li><a href="{:U('Adminuser/adminuser')}" target="iframe">管理员管理</a></li>
+   </ul>
+</div>
+<?php } ?>

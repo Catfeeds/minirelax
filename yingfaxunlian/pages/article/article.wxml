@@ -1,0 +1,113 @@
+
+<!-- <movable-area style="height: 100%;width: 100%;" > -->
+<view class="page_big" style='overflow:{{pageHidden}};height:100%;width:100%;'>
+  <view class="tou">
+  <image src="../images/er.png"></image>
+    <text bindtap="bindCurrent" data-id="{{currentId}}" wx:if="{{currentName}}">当前收听：{{currentName}}</text>
+    <text wx:else>当前收听：无</text>
+  </view>
+
+  <view class="touu">
+  </view>
+   <scroll-view scroll-top="{{scrollTop}}" style="height:100%; width: 100%;z-index:33" scroll-y="true" bindscrolltoupper="pullDownRefresh"  bindscroll="scroll" bindscrolltolower="pullUpLoad" > 
+  <view class="weui-panel" wx:for="{{pan}}" wx:key="{{index}}">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+
+        <view class="weui-media-box__title weui-media-box__title_in-text">
+          <image class="touxiang" src="{{item.avatar}}" bindtap="userinfo" data-userid="{{item.uid}}"></image>
+
+          <view class="ziti">
+            <text class="ziti_1">{{item.uname}}</text>   
+            <view class="ziti_div">
+              <text class="ziti_1 ziti_v" style="color:#ff5722;font-size:24rpx;margin-left:4rpx;" wx:if="{{item.utype>1}}">V</text>
+            <text style="color:#ff5722;font-size:24rpx" wx:else></text>
+            </view>    
+            <text  style="font-size:24rpx;margin-left:10rpx;">{{item.desc}}</text>
+            <view class="choice" bindtap="choice" data-id="{{item.id}}" wx:if="{{is_qx>0 && item.utype>1 && item.checked==0}}">
+              <image src="../images/checked.png"></image> 
+            </view>
+            <view class="choic_icon" wx:if="{{item.checked>0}}">
+              <image src="../images/tongguo.png"></image>
+            </view>
+            <view class="classname" wx:if="{{item.utype>1}}">
+              <text style="font-size:28rpx">学习了 </text>
+              <text style="font-size:28rpx;color:#f6b30a;" wx:if="{{item.pro_id>0}}" data-title="{{item.pname}}" bindtap="pro" data-proid="{{item.pro_id}}" >{{item.pname}}</text>
+              <text style="font-size:28rpx;color:#f6b30a;" bindtap="classname" data-state="open" wx:else>VIP课程</text> 
+              <!-- <text style="font-size:28rpx;color:#f6b30a;" bindtap="classname" data-state="open">VIP课程</text> -->
+            </view>
+            <view class="classname" wx:else>
+              <text style="font-size:28rpx" wx:if="{{item.pro_id>0}}">学习了 </text>
+              <text style="font-size:28rpx" wx:else>个人笔记 </text>
+              <text style="font-size:28rpx;color:#f6b30a;" wx:if="{{item.pro_id>0}}" data-title="{{item.pname}}" bindtap="pro" data-proid="{{item.pro_id}}" >{{item.pname}}</text>
+              <!-- <text style="font-size:28rpx;color:#f6b30a;" bindtap="classname" data-state="open">VIP课程</text> -->
+            </view>
+          </view>
+        </view>
+        <view class="weui-media-box__des">
+      <view class="classname" bindtap="notes" data-id="{{item.id}}">{{item.content}}</view>
+      <image wx:if="{{item.adv1}}" class="zhan_png" src="{{item.adv1}}" bindtap="show" data-id="{{item.adv1}}" data-width="{{item.adv1_width}}" data-height="{{item.adv1_height}}"></image>
+      <image wx:if="{{item.adv2}}" class="zhan_png" src="{{item.adv2}}" bindtap="show" data-id="{{item.adv2}}" data-width="{{item.adv2_width}}" data-height="{{item.adv2_height}}"></image>
+      <image wx:if="{{item.adv3}}" class="zhan_png" src="{{item.adv3}}" bindtap="show" data-id="{{item.adv3}}" data-width="{{item.adv3_width}}" data-height="{{item.adv3_height}}"></image> 
+    </view>
+    </view>
+    </view>
+  </view>
+</scroll-view> 
+ <!-- <view class="cx" bindtap="aa" hidden="{{nullHouse}}"> 
+
+</view> -->
+
+<view class="hiddens" bindtap="hiddens" data-statu="close" hidden="{{nullHouse}}"></view> 
+<!--支付  -->
+<view class="myToast"  style="border:1px solid #eee;" hidden="{{nullHouse}}">
+  <view style="font-size:32rpx;margin:30rpx 0; text-align:center;"> 原版阅读VIP权限</view>
+  <view class="drawer_content">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="content_top" >
+        <view style="text-align:center;font-size:32rpx;">畅听VIP版 </view>
+        <view>畅听小程序上所有课程，持续更新</view>
+        <view><radio value="4"/>￥99/30天</view>
+        <view><radio value="5" />￥199/90天</view>
+        <view><radio value="6"/>￥359/180天</view>
+      </view>
+      <view class="content_bottom">
+        <view style="text-align:center;font-size:32rpx;">高级VIP版</view>
+        <view>畅听+VIP口语课+国际群纯英文聊天</view>
+        <view><radio value="7"/>￥900/30天</view>
+        <view><radio value="8"/>￥1800/180天</view>
+      </view>
+      <view style="margin-top:5rpx;font-size:26rpx;">确认支付后请添加服务微信 haihai11</view>
+    </radio-group>
+ </view> 
+ <view class="button_ok" data-statu="close"  bindtap="buynow" data-otype="2">确认支付</view>
+</view>
+
+
+  <!-- 轮播图 -->
+  <view class="slideshow" hidden="{{!slideshow}}" bindtap="hide" >
+    <view class='swi'>
+      <image src="{{selectedId}}"  bindload="imageLoad" style="width:{{imageWidth}}px;;height:{{imageHeight}}px;"/>
+    </view>
+  </view>
+
+   <!-- <view class='fixed'> 
+      <navigator url="../heart/heart?htype=vclass"
+  bindtouchmove="viewTouchMove" bindtouchend="mytouchend" class="position_img">
+        <image src="../images/note.png"></image>
+      </navigator> 
+ </view>   -->
+   <navigator url="../heart/heart?htype=vclass" 
+  bindtouchmove="viewTouchMove" bindtouchend="mytouchend" class="position_img">
+    <image src="../images/write.png"></image>
+  </navigator>  
+  
+
+</view>
+
+<!-- <movable-view direction="all" style="height: 80rpx; width: 80rpx;border-radius:50%;z-index:999"  x="10" y="500" class='movable'>
+    <navigator url="../heart/heart?htype=vclass" class="position_img">
+      <image src="../images/write.png"></image>
+    </navigator> 
+  </movable-view> -->
+<!-- </movable-area> -->

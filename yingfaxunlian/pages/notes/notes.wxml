@@ -1,0 +1,140 @@
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <view class="drawer_title">请输入您的点评</view>
+  <view class="drawer_titles"> 
+    <form bindsubmit="evaSubmit">
+      <textarea name="evaContent" fixed="true" maxlength="800" value="{{evaContent}}" class="weui-textarea" placeholder="输入您要点评的内容(1-800字)" />     
+      <view class="bang">
+        <button  formType="submit" disabled="{{subdisabled}}" class="btn_ok" type="primary" size="mini">提交</button>
+      </view>
+    </form>
+  </view>
+</view>
+<view class="touu">
+  <view class="tou" style="position:{{fixed?'fixed':'relative'}}">
+    <image src="../images/er.png"></image>
+    <text bindtap="bindCurrent" data-id="{{currentId}}" wx:if="{{currentName}}">当前收听：{{currentName}}</text>
+    <text wx:else>当前收听：无</text>
+  </view>
+</view>
+
+ <!-- <view class="touu">
+</view>  -->
+<view class="weui-panel">
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+         <image class="touxiang" src="{{sinfo.avatar}}" bindtap="userinfo" data-userid="{{sinfo.uid}}"></image> 
+
+        <view class="ziti">
+          <text class="ziti_1">{{sinfo.uname}}</text>       
+          <view class="ziti_div">
+           <text class="ziti_1 ziti_v" style="color:#ff5722;font-size:24rpx;margin-left:4rpx;" wx:if="{{sinfo.utype>1}}">V</text>
+           <text style="color:#ff5722;font-size:24rpx" wx:else></text>
+          </view>  
+          <text style="font-size:24rpx;margin-left:10rpx;">{{sinfo.desc}}</text>
+          <view class="choice" bindtap="choice" data-id="{{sinfo.id}}" wx:if="{{is_qx>0 && sinfo.utype>1 && sinfo.checked==0}}">
+            <image src="../images/checked.png"></image> 
+          </view>
+          <view class="choic_icon" wx:if="{{sinfo.checked>0}}">
+            <image src="../images/tongguo.png"></image>
+          </view>
+          <view class="classname" wx:if="{{sinfo.utype>1}}">
+            <text style="font-size:28rpx">学习了 </text>
+             <text style="font-size:28rpx;color:#f6b30a;" wx:if="{{sinfo.pro_id>0}}" data-title="{{sinfo.pname}}" bindtap="pro" data-proid="{{sinfo.pro_id}}" >{{sinfo.pname}}</text>
+            <text style="font-size:28rpx;color:#f6b30a;" bindtap="classname" data-state="open" wx:else>VIP课程</text>
+          </view>
+        </view>
+      </view>
+      <view class="weui-media-box__des">
+     <view class="classname">{{sinfo.content}}</view>
+    <image wx:if="{{sinfo.adv1}}" class="zhan_png" src="{{sinfo.adv1}}" bindtap="show" data-id="{{sinfo.adv1}}" data-width="{{sinfo.adv1_width}}" data-height="{{sinfo.adv1_height}}"></image>
+    <image wx:if="{{sinfo.adv2}}" class="zhan_png" src="{{sinfo.adv2}}" bindtap="show" data-id="{{sinfo.adv2}}" data-width="{{sinfo.adv2_width}}" data-height="{{sinfo.adv2_height}}"></image>
+    <image wx:if="{{sinfo.adv3}}" class="zhan_png" src="{{sinfo.adv3}}" bindtap="show" data-id="{{sinfo.adv3}}" data-width="{{sinfo.adv3_width}}" data-height="{{sinfo.adv3_height}}"></image>
+  </view>
+  <!--删除  -->
+  <view class="dele" wx:if="{{uid==sinfo.uid}}" bindtap='delstudy' data-sid='{{sinfo.id}}'>
+    <image src="../images/dele.png"></image>
+  </view>
+  </view>
+  </view>
+</view>
+
+<!--回答  -->
+<!-- <view class="pin"> -->
+  <!-- <image src="../images/gouss.png"></image>
+点评 -->
+<!-- </view> -->
+
+<!--1-->
+  <view class="nodata" wx:if="{{list==''}}">
+    暂无点评
+  </view>
+   <view class="scroll_cont aaa" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list}}">
+     <!-- <view class="scrll_a" style="position: relative;">
+      <image class="imagess" src="{{item.avatar}}"></image>
+      <view class="scrll_aa">
+        <text style="font-size:30rpx;color:#ff5722;">{{item.uname}}</text>
+        <image class='vips' src="../images/vips.png" wx:if="{{item.utype>1}}"></image>
+        <view class="ba">{{item.reply_time}}</view>
+      </view> -->
+      <text style="color:#ccc;position: absolute;top:3px;right:20rpx;font-size:36rpx;" wx:if="{{is_qx==1}}"  bindtap='delstudyans' data-ansid='{{item.id}}'>x</text>
+    <!-- </view>       -->
+    <!--1-->
+    <view class="scrll_b">
+     <text style="color:#999;margin-right:10rpx;">点评</text> {{item.reply_con}}
+    </view>
+   </view>
+<!--确认支付  -->
+<view class="hiddens" bindtap="hiddens" data-statu="close" hidden="{{nullHouse}}"></view> 
+<view class="myToast" style="border:1px solid #eee;" hidden="{{nullHouse}}">
+  <view style="font-size:32rpx;margin:30rpx 0; text-align:center;"> 原版阅读VIP权限</view>
+  <view class="drawer_content">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="content_top" >
+        <view style="text-align:center;font-size:32rpx;">畅听VIP版 </view>
+        <view>畅听小程序上所有课程，持续更新</view>
+        <view><radio value="4"/>￥99/30天</view>
+        <view><radio value="5" />￥199/90天</view>
+        <view><radio value="6"/>￥359/180天</view>
+      </view>
+      <view class="content_bottom">
+        <view style="text-align:center;font-size:32rpx;">高级VIP版</view>
+        <view>畅听+VIP口语课+国际群纯英文聊天</view>
+        <view><radio value="7"/>￥900/30天</view>
+        <view><radio value="8"/>￥1800/180天</view>
+      </view>
+      <view style="margin-top:5rpx;font-size:26rpx;">确认支付后请添加服务微信 haihai11</view>
+    </radio-group>
+  </view> 
+  <view class="button_ok" data-statu="close"  bindtap="buynow" data-otype="2">确认支付</view>
+</view>
+
+
+ <!-- 轮播图 -->
+<view class="slideshow" hidden="{{!slideshow}}" bindtap="hide" >
+  <view class='swi'>
+    <image src="{{selectedId}}"  bindload="imageLoad" style="width:{{imageWidth}}px;;height:{{imageHeight}}px;"/>
+  </view>
+</view>
+
+<!--回答  -->
+<view class="huifu" bindtap="powerDrawer" data-statu="open" wx:if="{{is_qx==1}}">
+  <image src="../images/huida.png"></image>
+</view>
+
+<!--提示框1-->
+<!--mask-->
+<!-- <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <view class="drawer_title">请输入您的点评</view>
+  <view class="drawer_titles"> 
+    <form bindsubmit="evaSubmit">
+      <textarea name="evaContent" fixed="true" maxlength="800" value="{{evaContent}}" class="weui-textarea" placeholder="输入您要点评的内容(1-800字)" />     
+      <view class="bang">
+        <button  formType="submit" disabled="{{subdisabled}}" class="btn_ok" type="primary" size="mini">提交</button>
+      </view>
+    </form>
+  </view>
+</view> -->

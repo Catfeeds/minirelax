@@ -1,0 +1,20 @@
+<!-- WHO--数据 -->
+      <scroll-view  scroll-y style="height:99%;">
+        <view class="nodata" wx:if="{{catinfo[1].list==''}}">该分类下没有找到更多数据</view>
+
+        <!--免费版-->
+        <view class="container_a" bindtap="bindViewTa" wx:for="{{catinfo[1].list}}" wx:key="{{index}}" data-id="{{pro.id}}" wx:for-item="pro" data-name="{{pro.name}}" wx:if="{{catinfo[1].list}}">
+          <image class="bo" src="{{pro.photo_x}}"></image>
+          <view class="second">
+            <view class="second_one">
+              <text>{{pro.name}}</text>
+            </view>
+            <view class="second_two">
+              {{pro.intro}}
+            </view>
+          </view>
+          <view class="time">{{pro.desc}}</view>
+        </view>
+
+        <view class="getmore" bindtap="gd" data-id="{{catinfo[1].id}}" data-name="{{catinfo[1].name}}" wx:if="{{catinfo[1].list.length>10}}">点击查看更多</view>
+      </scroll-view>

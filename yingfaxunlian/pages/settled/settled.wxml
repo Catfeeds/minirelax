@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="classname">
+    <form bindsubmit="reg">
+      <view class="xing">支付金额：<text style="font-weight:bold;color:red;">20元</text>
+      </view>
+
+      <view class="xing">微信号：
+        <input placeholder-class='placeholder' placeholder='请输入你的微信号' class="in" name='weixin' />
+      </view>
+      <view class="xing">手机号：
+        <input placeholder-class='placeholder' placeholder='请输入你的手机号' class="in" name='tel' />
+      </view>
+
+      <button type="" form-type="submit" hover-class='button-hover' class='su'>立即开通</button>
+    </form>
+  </view>
+
+</view>

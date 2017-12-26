@@ -1,0 +1,38 @@
+<view class="tou">
+ <image src="../images/er.png"></image>
+   <text bindtap="bindCurrent" data-id="{{currentId}}" wx:if="{{currentName}}">当前收听：{{currentName}}</text>
+   <text wx:else>当前收听：无</text>
+</view>
+
+<view class="touu">
+</view>
+<view class="weui-panel" wx:for="{{pan}}">
+  <view class="weui-panel__bd" bindtap="question" data-id="{{item.qid}}">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        <image class="touxiang" src="{{item.avatar}}"></image>
+        <view class="ziti">
+          <view class="classnam" >
+            <text class="ziti_1">{{item.uname}}</text>
+            <text style="font-size:24rpx">发布于 </text>
+            <text style="color:#f6b30a;font-size:24rpx" class="classna" > {{item.desc}}</text>
+          </view>
+          <!-- <text class="ziti_1" style="color:#ff5722;font-size:24rpx" wx:if="{{item.audit>0}}">已发布</text>
+  <text class="ziti_1" style="color:#ff5722;font-size:24rpx" wx:else>未发布</text>
+          <text style="font-size:24rpx">{{item.desc}}</text> -->
+        </view>
+      </view>
+
+      <view class="weui-media-box__des">
+        <view class="classname">{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 轮播图 -->
+<view class="slideshow" hidden="{{!slideshow}}" bindtap="hide" >
+  <view class='swi'>
+    <image src="{{selectedId}}"    bindload="imageLoad" style="width:{{imageWidth}}px;;height:{{imageHeight}}px;"/>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/article/article",
+    "pages/issue/issue",
+    "pages/editionData1/editionData1",
+    "pages/myactivities/myactivities",
+    "pages/music/music",
+    "pages/question/question",
+    "pages/articlet/articlet",
+    "pages/answer/answer",
+    "pages/book/book",
+    "pages/ability/ability",
+    "pages/notes/notes",
+    "pages/recommend/recommend",
+    "pages/accumulate/accumulate",
+    "pages/edition/edition",
+    "pages/edition2/edition2",
+    "pages/editionData2/editionData2",
+    "pages/comment/comment",
+    "pages/video/video",
+    "pages/usertime/usertime",
+    "pages/userinfo/userinfo",
+    "pages/mark/mark",
+    "pages/news/news",
+    "pages/heart/heart",
+    "pages/gd/gd",
+    "pages/settled/settled"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#555",
+    "navigationBarTitleText": "原版阅读",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#dd2727",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pages/images/reww.png",
+        "selectedIconPath": "pages/images/rew.png",
+        "text": "知识"
+      },
+      {
+        "pagePath": "pages/article/article",
+        "iconPath": "pages/images/rww.png",
+        "selectedIconPath": "pages/images/rw.png",
+        "text": "笔记"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "pages/images/rxx.png",
+        "selectedIconPath": "pages/images/rx.png",
+        "text": "我"
+      }
+    ]
+  }
+}

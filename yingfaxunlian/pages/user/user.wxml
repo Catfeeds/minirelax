@@ -1,0 +1,100 @@
+<!--pages/user/user.wxml-->
+<view class="page">
+
+<!--<view class="tou">
+  <image  src="../images/er.png"></image>
+   <text>当前播放：大大方方都发</text>
+</view>
+
+<view class="touu">
+</view>-->
+    
+
+      <view class="userinfo">
+        <view class="user_img">
+          <image class="userinfo-avatar fl_l" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        </view>
+        <view class="user_names">
+          <text class="fl_l user_name">{{userInfo.nickName}}</text>
+         <text class="fl_l" style="color:#ff5722" wx:if="{{userType>1}}">VIP会员</text>
+         <text class="fl_l" style="color:#ff5722" wx:else>普通会员</text>
+        </view>
+        <view class="user_signature" bindtap="userText" wx:if="{{info.intro}}">{{info.intro}}</view>
+        <view class="user_signature" bindtap="userText" wx:else>点击编辑个性签名</view>
+        <view class="user_bottom">
+          <view class="user_left user_border">
+            <view class="user_today_time" style="color:gray">{{info.totalstudy}}分钟</view>
+            <view class="user_today" style="color:gray">总学习时长</view>
+          </view>
+          <view class="user_left">
+            <view class="user_today_time" style="color:gray">{{info.todaystudy}}分钟</view>
+            <view class="user_today" style="color:gray">今日学习时长</view>
+          </view>
+
+        </view>
+      </view>   
+<view class="xian"></view>
+
+  <navigator url="../question/question" class="qbdd mt10">
+    <view>
+      <span class="font_14 c3">我的提问</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.question}} 条</text>  <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+
+  <navigator url="../articlet/articlet" class="qbdd mt10">
+    <view>
+      <span class="font_14 c3">我的笔记</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.study}} 篇</text> <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+
+  <navigator url="../mark/mark" class="qbdd mt10">
+    <view>
+      <span class="font_14 c3">我的Mark</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.mark}} 个</text>  <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+  <navigator url="../answer/answer" class="qbdd mt10" wx:if="{{info.is_qx>0}}">
+    <view>
+      <span class="font_14 c3">我的回答</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.answer}} 条</text>  <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+  <navigator url="../myactivities/myactivities" class="qbdd mt10">
+    <view>
+      <span class="font_14 c3">我的活动</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text></text>  <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+
+
+  <view class="qbdd mt10" wx:if="{{userType>1}}">
+    <span class="font_14 c3">会员期限</span>
+    <span class="fl_r c9 font_12 l_h20" hover-class="none">
+      <text>{{info.offtime}}</text>
+    </span>
+  </view>
+  <navigator url="../usertime/usertime" class="qbdd mt10" wx:else>
+    <view>
+      <span class="font_14 c3">会员期限</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none">
+      <text>查看权限 </text><image src="../images/you.png"></image>
+      </span>
+   </view>
+  </navigator>
+<view class="xian"></view>
+</view>
+<view class="textarea" hidden="{{textareaHidden}}">
+  <view class="textarea_center">
+    <view class="textarea_bottom">
+      <form bindsubmit="bindFormSubmit">
+        <textarea placeholder="个性签名" name="textarea" value="{{info.intro}}"/>
+        <button class="button_left" bindtap="cancel" >取消</button>
+        <button form-type="submit" class="button_right"> 提交 </button>
+      </form>
+    </view>
+  </view>
+</view>
+
+

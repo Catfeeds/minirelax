@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/xheditor/xheditor-1.2.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/xheditor/xheditor_lang/zh-cn.js"></script>
+<style type="text/css">
+  .img-err {
+    position: relative;
+    top: 2px;
+    left: 82%;
+    color: white;
+    font-size: 20px;
+    border-radius: 16px;
+    background: #c00;
+    height: 21px;
+    width: 21px;
+    text-align: center;
+    line-height: 20px;
+    cursor:pointer;
+}
+.btn{
+            height: 25px;
+            width: 60px;
+            line-height: 24px;
+            padding: 0 8px;
+            background: #24a49f;
+            border: 1px #26bbdb solid;
+            border-radius: 3px;
+            color: #fff;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 13px;
+            outline: none;
+            -webkit-box-shadow: #666 0px 0px 6px;
+            -moz-box-shadow: #666 0px 0px 6px;
+        }
+        .btn:hover{
+          border: 1px #0080FF solid;
+          background:#D2E9FF;
+          color: red;
+          -webkit-box-shadow: rgba(81, 203, 238, 1) 0px 0px 6px;
+          -moz-box-shadow: rgba(81, 203, 238, 1) 0px 0px 6px;
+        }
+        .cls{
+            background: #24a49f;
+        }
+</style>
+</head>
+<body>
+
+<div class="aaa_pts_show_1">【 栏目管理 】</div>
+
+<div class="aaa_pts_show_2">
+    
+    <div>
+       <div class="aaa_pts_4"><a href="{:U('More/pweb_gl')}">返回</a></div>
+    </div>
+    <div class="aaa_pts_3">
+      <form action="{:U('More/pweb')}" method="post" onsubmit="return ac_from();" enctype="multipart/form-data">
+      <ul class="aaa_pts_5">
+         <li>
+            <div class="d1">标题名称:</div>
+            <div>
+              <input class="inp_1" name="uname" id="uname" value="{$datas.uname}" />
+            </div>
+         </li>
+         <?php if (intval($datas['id'])==1) { ?>
+         <li>
+            <div class="d1">轮播内容:</div>
+            <div>
+              <textarea class="inp_1" style="width:400px;height:150px;" placeholder="前台轮播显示文字，限200字" name="ename" id="ename" />{$datas['ename']}</textarea>
+            </div>
+         </li>
+         <?php } ?> 
+         <!-- <li id="imgs_add">
+          <div class="d1">公告图:</div>
+           <div>
+              <input type="file" name="files[]" style="width:160px;" />
+           </div>
+         </li>
+        <li>
+          <div class="d1">&nbsp;</div>
+          <div>
+             &nbsp;<span class="btn cls" style="background:#D0D0D0; width:40px; color:black;" onclick="upadd();">添加+</span>
+          </div>
+        </li> -->
+         <li>
+            <div class="d1">图文详情:</div>
+            <div>
+              <textarea class="inp_1 inp_2" name="concent" id="concent" />{$datas['concent']}</textarea>
+            </div>
+         </li>
+         
+         <li><input type="submit" name="submit" value="提交" class="aaa_pts_web_3" border="0">
+         <input type="hidden" name="id" id="id" value="{$datas['id']}"></li>
+      </ul>
+      </form>
+         
+    </div>
+    
+</div>
+<script>
+function upadd(obj){
+  //alert('aaa');
+  $('#imgs_add').append('<div>&nbsp;&nbsp;<input type="file" style="width:160px;" name="files[]" /><a onclick="$(this).parent().remove();" class="btn cls" style="background:#D0D0D0; width:40px; color:black;"">&nbsp;&nbsp;&nbsp;删除</a></div>');
+  return false;
+}
+
+//图片删除
+function del_img(img,obj){
+  var id = $('#id').val();
+  if (confirm('是否确认删除？')) {
+    $.post('{:U("img_del")}',{img_url:img,id:id},function(data){
+      if(data.status==1){
+        alert('删除成功！');
+        $(obj).parent().remove();
+        return false;
+      }else{
+        alert(data.err);
+        return false;
+      }
+    },"json");
+  };
+}
+
+//初始化编辑器
+$('#concent').xheditor({
+	skin:'nostyle', 
+	upImgUrl:'{:U("Upload/xheditor")}'
+});
+</script>
+</body>
+</html>

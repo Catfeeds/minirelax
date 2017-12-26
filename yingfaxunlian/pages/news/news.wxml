@@ -1,0 +1,11 @@
+<view class="new">
+     <view class="biaoti">{{newsInfo.ename}}</view>
+
+<view class="riqi">
+      <text style="margin-left:10px;">发布：{{newsInfo.addtime}}</text>
+</view>
+</view>
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="wxParse" style="padding:10rpx 18rpx;">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>

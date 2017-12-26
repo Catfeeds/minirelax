@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link href="__PUBLIC__/ht/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/ht/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ht/js/action.js"></script>
+</head>
+<body>
+<div class="aaa_pts_show_1">【 会员笔记管理 】</div>
+<div class="aaa_pts_show_2">
+    
+    <div class="aaa_pts_3">
+      <div class="pro_4 bord_1">
+         <div class="pro_5">会员名称：<input type="text" class="inp_1 inp_6" id="name" value="{$name}"></div> 
+         <div class="pro_6"><input type="button" class="aaa_pts_web_3" value="搜 索" style="margin:0;" onclick="product_option(0);"></div>
+      </div>
+      <table class="pro_3">
+         <tr class="tr_1">
+            <td style="width:80px;">ID</td>
+            <td style="width:120px;">会员</td>
+            <td style="width:130px;">课程名称</td>
+            <td>笔记内容</td>
+            <td style="width:140px;">发布时间</td>
+            <td style="width:120px;">发布状态</td>
+            <td style="width:180px;">操作</td>
+         </tr>
+         <tbody id="news_option">
+           <!-- 遍历 -->
+           <volist name="list" id="v">
+             <tr>
+              <td>{$v.id}</td>
+              <td>{$v.uname}</td>
+              <td>{$v.pname}</td>
+              <td>{$v.content}</td>
+              <td>{$v.addtime}</td>
+              <td><if condition="$v.audit eq 1"><label style="color:green;">已发布</label><else /><label style="color:gray;">未发布</label></if></td>
+              <td class="obj_1">
+                <a onclick="del_id_urls({$v.id})">删除</a>
+              </td>
+             </tr>
+           </volist>
+           <!-- 遍历 -->
+         </tbody>
+         <tr>
+            <td colspan="10" class="td_2">
+              {$page_index}
+            </td>
+         </tr>
+      </table>      
+    </div>
+    
+</div>
+<script>
+//搜索的方法
+function product_option(page){
+  window.location.href='?page='+page+'&name='+$("#name").val()
+}
+
+function del_id_urls(id,page){
+   if(confirm('你确定要删除吗？')){
+    location.href='{:U("delstudy")}?did='+id+'&page='+page;
+  }
+}
+</script>
+</body>
+</html>

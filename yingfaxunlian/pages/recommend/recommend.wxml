@@ -1,0 +1,17 @@
+<!-- 推荐书单--数据 -->
+       <scroll-view scroll-y style="height:99%;">
+        <view class="nodata" wx:if="{{catinfo[3].list==''}}">该分类下没有找到更多数据</view>
+        <view wx:if="{{shuxingss}}" class="container_a" bindtap="bindViewTa" wx:for="{{catinfo[3].list}}" data-id="{{pro.id}}" wx:for-item="pro" data-name="{{pro.name}}" wx:if="{{catinfo[3].list}}">
+          <image class="bo" src="{{pro.photo_x}}"></image>
+          <view class="second">
+            <view class="second_one">
+              <text>{{pro.name}}</text>
+            </view>
+            <view class="second_two">
+              {{pro.intro}}
+            </view>
+          </view>
+          <view class="time">{{pro.desc}}</view>
+        </view>
+        <view class="getmore" bindtap="gd" data-id="{{catinfo[3].id}}" data-name="{{catinfo[3].name}}" wx:if="{{catinfo[3].list.length>10}}">点击查看更多</view>
+      </scroll-view>

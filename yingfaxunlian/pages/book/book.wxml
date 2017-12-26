@@ -1,0 +1,93 @@
+<!--index.wxml-->
+<view class=" a">
+<image class="a_img"  src="{{info.photo_x}}"></image>
+<view class="a_name">
+
+</view>
+</view>
+
+ <view class="container" >
+    <scroll-view scroll-y="true" style="height: 99%">
+      <view bindtap="bindViewTap" class="music">
+        <view class="xingqing">
+          <view class="title">
+            <!-- <image class="title_img" src="{{info.avatar}}"></image> -->
+             <text style="margin-left:20rpx"></text> 
+            <view class="ping" bindtap="ping">
+              <image class="title_png" src="../images/xie.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- <view class="t" wx:if="{{showStatus==1}}">
+        <view class="pi" bindtap="clickArea" data-otype="2" wx:if="{{userType<2}}">
+          成为会员
+        </view>
+      </view> -->
+
+      <import src="../../wxParse/wxParse.wxml" />
+      <view class="wxParse" style="color:white;">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+      </view>
+
+
+<view class="kuang" wx:if="{{info.english}}">
+      <view class="mingyan">
+      {{info.english}} 
+</view>
+      <view class="mingyan">
+{{info.chinese}}</view>
+
+</view>
+
+    </scroll-view>
+
+    
+  </view>
+
+
+
+
+<view class="cx" bindtap="aa" hidden="{{nullHouse}}">
+
+</view>
+
+<view class="myToast" hidden="{{nullHouse}}">
+  <view style="font-size:32rpx;margin:30rpx 0; text-align:center;"> 原版阅读VIP权限</view>
+
+  <view class="drawer_content">
+  <view>1）原版阅读半年会员，可畅听小程序上的所有课程内容（持续更新）</view>
+  <view>2) 赠送【单词拼读规律】、【系统音标】2门基础课（视频讲解，永久有效）</view>
+  <view>3）加入VIP课程，学习每日原版书刊、影音的句子讲解</view>
+  <view>4）享有权限以¥499的优惠价购买原价¥1666的【语法精华课程】全套（含152个语法点的视频讲解，永久有效）</view>
+  <view>5）完成会员活动任务，可获全额返现</view>
+  <view>VIP会员价格：¥599/半年</view>
+  <view>确认支付后请添加服务微信 haihai11</view>
+ </view> 
+
+ <view class="btn_ok" data-statu="close"  bindtap="buynow" data-otype="2">确认支付</view>
+</view>
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+  
+ <!--drawer content-->
+ <view class="drawer_title"> 学习社群精华版</view> 
+ <view class="drawer_content">
+ <view>有效期为半年，除了畅听《谁动了我的奶酪》英文原版书的所有学习节目之外，还包含以下学习服务：</view>
+<view> 1- 完整系统的音标知识</view>
+<view>2- 简单实用的自然拼读规律</view>
+<view>3- 语法精华（小到词性搭配，中到常用时态，大到各种从句以及深层语法的逻辑思维等所有语言点均包含在内）</view>
+<view>4- 运用语言知识，表达内在思想，影射生活，启迪生活</view>
+<view>5- 确认支付后请添加管家微信小橙 chs_177</view>
+
+ </view> 
+ <view class="btn_ok" data-statu="close"  bindtap="buynow" data-otype="3">确认支付</view> 
+</view>
+
+
+
+

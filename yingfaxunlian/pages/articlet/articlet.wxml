@@ -1,0 +1,67 @@
+<view class="tou">
+ <image src="../images/er.png"></image>
+   <text bindtap="bindCurrent" data-id="{{currentId}}" wx:if="{{currentName}}">当前收听：{{currentName}}</text>
+   <text wx:else>当前收听：无</text>
+</view>
+
+<view class="touu">
+</view>
+<view class="weui-panel" wx:for="{{pan}}">
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        <image class="touxiang" src="{{item.avatar}}"></image>
+        <view class="ziti">
+          <view class="classnam" >
+            <text class="ziti_1">{{item.uname}}</text>
+            <view class="ziti_div">
+              <text class="ziti_v" style="color:#ff5722;font-size:24rpx;margin-left:-10rpx;" wx:if="{{item.utype>1}}">V</text>
+            </view>  
+            <text style="font-size:24rpx">学习了 </text>
+            <text style="color:#f6b30a;font-size:24rpx" class="classna" wx:if="{{item.pro_id>0}}" bindtap="pro" data-proid="{{item.pro_id>0}}" data-title="{{item.pname}}">{{item.pname}}</text>
+            <text style="color:#f6b30a;font-size:24rpx" class="classna" wx:else >VIP课程</text>
+          </view>
+          <text class="ziti_1" style="color:#ff5722;font-size:24rpx" wx:if="{{item.audit>0}}">发布于</text>
+  <text class="ziti_1" style="color:#ff5722;font-size:24rpx" wx:else>未发布</text>
+          <text style="font-size:24rpx">{{item.desc}}</text>
+          <view class="choic_icon" wx:if="{{item.checked>0}}">
+            <image src="../images/tongguo.png"></image>
+          </view>
+        </view>
+
+<image class="fabiao" src="../images/fabiao.png" bindtap="fabu" data-id="{{item.id}}" wx:if="{{item.audit==0}}"></image>
+      </view>
+
+      <view class="weui-media-box__des">
+        <view class="classname" bindtap="notes" data-id="{{item.id}}">{{item.content}}</view>
+        <image wx:if="{{item.adv1}}" class="zhan_png" src="{{item.adv1}}" bindtap="show" data-id="{{item.adv1}}" data-width="{{item.adv1_width}}" data-height="{{item.adv1_height}}"></image>
+        <image wx:if="{{item.adv2}}" class="zhan_png" src="{{item.adv2}}" bindtap="show" data-id="{{item.adv2}}" data-width="{{item.adv2_width}}" data-height="{{item.adv2_height}}"></image>
+        <image wx:if="{{item.adv3}}" class="zhan_png" src="{{item.adv3}}" bindtap="show" data-id="{{item.adv3}}" data-width="{{item.adv3_width}}" data-height="{{item.adv3_height}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 轮播图 -->
+<view class="slideshow" hidden="{{!slideshow}}" bindtap="hide" >
+  <view class='swi'>
+    <image src="{{selectedId}}"    bindload="imageLoad" style="width:{{imageWidth}}px;;height:{{imageHeight}}px;"/>
+  </view>
+</view>
+<!--日历  -->
+<view class="rili" bindtap="Show" >
+  <image src="../images/rili.png"></image>
+</view>
+<view class="windows" hidden="{{hidden}}" animation="{{animationData}}">
+  <view class="windows_big" bindtap="Hidden">
+
+  </view>
+  <view class="windows_center" >
+   <scroll-view scroll-y style="height: 100%;border-radius:20rpx;">
+    <view class="windows_time" style="text-align:center;">笔记日历(共{{dateList.length}}天)</view>
+    <view class="windows_time" wx:for="{{dateList}}">
+      {{item.dates}}
+    </view>
+  </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+<view class="tou">
+ <image src="../images/er.png"></image>
+   <text bindtap="bindCurrent" data-id="{{currentId}}" wx:if="{{currentName}}">当前收听：{{currentName}}</text>
+   <text wx:else>当前收听：无</text>
+</view>
+
+<view class="touu">
+</view>
+<view class="weui-panel" wx:for="{{pan}}">
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        <image class="touxiang" src="{{item.avatar}}" bindtap='userinfo' data-userid='{{item.theuid}}'></image>
+        <view class="ziti">
+          <view class="classnam" bindtap="question" data-id="{{item.reply_id}}">
+            <text class="ziti_1">{{item.uname}}</text>
+            <view class="ziti_div">
+              <text class="ziti_v" style="color:#ff5722;font-size:24rpx;margin-left:-10rpx;" wx:if="{{item.utype>1}}">V</text>
+            </view>
+            <text style="font-size:24rpx">发布于 </text>
+            <text style="color:#f6b30a;font-size:24rpx" class="classna" > {{item.desc}}</text>
+          </view>
+          <!-- <text class="ziti_1" style="color:#ff5722;font-size:24rpx" wx:if="{{item.audit>0}}">已发布</text>
+  <text class="ziti_1" style="color:#ff5722;font-size:24rpx" wx:else>未发布</text>
+          <text style="font-size:24rpx">{{item.desc}}</text> -->
+        </view>
+      </view>
+
+      <view class="weui-media-box__des" bindtap="question" data-id="{{item.reply_id}}">
+        <view class="classname">{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 轮播图 -->
+<view class="slideshow" hidden="{{!slideshow}}" bindtap="hide" >
+  <view class='swi'>
+    <image src="{{selectedId}}"    bindload="imageLoad" style="width:{{imageWidth}}px;;height:{{imageHeight}}px;"/>
+  </view>
+</view>
+
+<!--日历  -->
+<!-- <view class="rili" bindtap="Show"  animation="{{animationData}}">
+  <image src="../images/rili.png"></image>
+</view>
+<view class="windows" hidden="{{hidden}}"  animation="{{animationData}}">
+  <view class="windows_big" bindtap="Hidden">
+
+  </view>
+  <view class="windows_center" >
+   <scroll-view scroll-y style="height: 100%;border-radius:20rpx;">
+    <view class="windows_time" style="text-align:center;">提问日历</view>
+    <view class="windows_time" wx:for="{},{},{},{},{},{},{}">
+      2017-9-27
+    </view>
+  </scroll-view>
+  </view>
+</view> -->

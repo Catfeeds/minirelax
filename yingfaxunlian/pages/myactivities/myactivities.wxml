@@ -1,0 +1,35 @@
+<view class="page" wx:if="{{info.type>1}}">
+  <view class="activities">
+    您是 <text style="color:#ff5722;">VIP会员</text>，在会员有效期内完成以下2项任务，可获学费全额返现
+  </view>
+  <view class="text_value">
+    <text> ▪ 累计发布提问100天（1条/天），并得到回答，您目前已发布 <text style="color:#ff5722;">{{info.days}}</text> 天，还差 <text style="color:#ff5722;">{{info.sdays}}</text> 天</text>
+  </view>
+  <view class="text_value">
+    <text> ▪ 累计发布笔记120天（1篇/天），您目前已发布 <text style="color:#ff5722;">{{info.notenum}}</text> 天，还差 <text style="color:#ff5722;">{{info.snotenum}}</text> 天</text>
+  </view>
+</view>
+<view class="page" wx:else>
+  <view class="activities">
+    成为<text bindtap="bindvip" style="color:#ff5722;"> 半年VIP会员</text>，完成以下2项任务，可获学费全额返现
+  </view>
+  <view class="text_value">
+    <text> ▪ 累计发布提问100天（1条/天），并得到回答</text>
+  </view>
+  <view class="text_value">
+    <text> ▪ 累计发布笔记120天（1篇/天），并得到CHECKED</text>
+  </view>
+</view>
+<view class="wenzi" style="margin:100rpx 0 0 50rpx;">
+  <view class="classname">人生是不断学习，</view>
+  <view class="classname">持续更新自己，</view>
+  <view class="classname">现在的努力，</view>
+  <view class="classname">将获回报，</view>
+  <view class="classname">加油！</view>
+  <view class="classname">你！</view>
+</view>
+
+
+
+
+

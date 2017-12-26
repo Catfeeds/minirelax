@@ -1,0 +1,114 @@
+/*顶部*/
+
+.tou {
+  position: fixed;
+  width: 100%;
+  height: 80rpx;
+  background: #f2f2f2;
+  font-size: 30rpx;
+  /*居中*/
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+.touu {
+  width: 100%;
+  height: 80rpx;
+}
+
+.tou image {
+  margin: 0 25rpx;
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.title {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  padding: 20rpx 0;
+  font-size: 32rpx;
+  width: 100%;
+}
+
+.shu {
+  font-weight: 70;
+  margin-left: 20rpx;
+}
+
+.container_a {
+  width: 100%;
+  display: flex;
+  height: 150rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.bo {
+  width: 24%;
+  height: 76%;
+  margin: 20rpx;
+  margin-left: 35rpx;
+}
+
+.second {
+  width: 51%;
+}
+
+.second_one {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+}
+
+.second_one text {
+  display: block;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "微软雅黑";
+}
+
+.second_two {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  font-size: 26rpx;
+  color: #ccc;
+  line-height: 60rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.time {
+  width: 25%;
+  line-height: 192rpx;
+  text-align: center;
+  color: #999;
+  font-size: 23rpx;
+}
+
+.main{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  padding-bottom: 30rpx;
+}
+/*线*/
+.xian{
+   height: 30rpx;
+   width: 100%;
+   background: #f2f2f2;
+}
+
+.slideshow{
+  position: fixed;
+  top: 0rpx;
+  left: 100rpx;
+  background: #000;
+}

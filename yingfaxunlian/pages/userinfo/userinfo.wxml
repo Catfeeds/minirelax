@@ -1,0 +1,47 @@
+<!--pages/user/user.wxml-->
+<view class="page">
+      <view class="userinfo">
+        <view class="user_img">
+          <image class="userinfo-avatar fl_l" src="{{info.photo}}" background-size="cover"></image>
+        </view>
+        <view class="user_names">
+          <text class="fl_l user_name">{{info.name}}</text>
+         <text class="fl_l" style="color:#ff5722" wx:if="{{info.type>1}}">VIP会员</text>
+         <text class="fl_l" style="color:#ff5722" wx:else>普通会员</text>
+        </view>
+        <view class="user_signature" bindtap="userText" wx:if="{{info.intro}}">{{info.intro}}</view>
+        
+      </view>   
+<view class="xian"></view>
+  
+  <navigator url="../question/question?userId={{info.id}}" class="qbdd mt10">
+    <view>
+      <span class="font_14 c3">我的提问</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.question}} 条</text> <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+
+  <navigator url="../articlet/articlet?userId={{info.id}}&stype=show" class="qbdd mt10">
+    <view>
+      <span class="font_14 c3">我的笔记</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.study}} 篇</text><image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+
+  <navigator url="../mark/mark?userId={{info.id}}" class="qbdd mt10">
+    <view>
+      <span class="font_14 c3">我的Mark</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.mark}} 个</text>  <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+  <navigator url="../answer/answer?userId={{info.id}}" class="qbdd mt10" wx:if="{{info.is_qx>0}}">
+    <view>
+      <span class="font_14 c3">我的回答</span>
+      <span class="fl_r c9 font_12 l_h20" hover-class="none"><text style="color:#ccc;margin-right:10rpx;">{{info.answer}} 条</text>  <image src="../images/you.png"></image></span>
+    </view>
+  </navigator>
+
+<view class="xian"></view>
+</view>
+
+

@@ -1,0 +1,38 @@
+<view class="video">
+    <video id="myVideo" src="{{src}}" autoplay="false"  ></video>
+    <!-- <view class="video_img" hidden="{{hidden}}">
+      <image src="{{info.backimg}}"></image>
+      <view class="video_content">
+        <view>{{info.name}}</view>
+      </view>
+    </view> -->
+</view>
+<view class="tap" bindtap="TapClick">
+  <view class="tap_left" ><text id="0" class="{{Tap == 0?'color':''}}">视频</text></view>
+  <view class="tap_right"><text id="1" class="{{Tap == 1?'color':''}}">简介</text></view>
+</view>
+<view class="layout" wx:if="{{Tap == 0}}">
+  <navigator bindtap="bindButtonTap" class="layout_big" wx:for="{{list}}" wx:key="{{index}}"  data-index="{{index}}" wx:if="{{list}}" data-id='{{item.id}}' data-free='{{item.is_free}}'>
+    <view class="layout_right">
+      <view class="layout_name" wx:if="{{item.is_free>1 && userType<=1}}" style="color:gray;"><text class='serial_num'>{{index+1}}</text>{{item.name}}</view>
+      <view class="layout_name" wx:else style="color:{{dataIndex == index?'orange':''}}"><text class='serial_num'>{{index+1}}</text>{{item.name}}</view>
+      <view class="layout_recommend">{{item.intro}}</view>
+    </view>
+  </navigator>
+</view>
+<view class="jianjie" wx:if="{{Tap == 1}}">
+  <view class="jianjie_big">
+    <view class="title">
+      <view class="title_left">{{title}} </view>
+    </view>
+    <view class="jianjie_content">
+      <import src="../../wxParse/wxParse.wxml" />
+      <view class="wxParse" style="font-size:32rpx;">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+      </view>
+    </view>
+  </view>
+</view>
+
+
+

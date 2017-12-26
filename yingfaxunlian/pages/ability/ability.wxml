@@ -1,0 +1,12 @@
+<view class="layout">
+  <navigator url="../video/video?cid={{item.id}}&title={{item.name}}" class="layout_big" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="layout_img">
+      <image src="{{item.img}}"></image>
+    </view>
+    <view class="layout_right" style="margin-top:12rpx;">
+      <view class="layout_name">{{item.name}}</view>
+      <view class="layout_recommend">{{item.desc}}</view>
+    </view>
+  </navigator>
+</view>
+

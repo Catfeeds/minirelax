@@ -1,0 +1,99 @@
+ <!--1-->
+  <view class="scroll_cont">
+    <view class="scrll_a">
+      <image class="imagess" src="{{info.avatar}}" bindtap="userinfo" data-userid="{{info.uid}}"></image>
+      <view class="scrll_aa">
+        <text bindtap="userinfo" data-userid="{{info.uid}}">{{info.name}}</text>
+        <text class="ziti_1 ziti_v" style="color:#ff5722;font-size:24rpx;margin-left:4rpx;" wx:if="{{info.utype>1}}">V</text>
+        <!-- <image class='vips' src="../images/vips.png" wx:if="{{info.utype>1}}"></image> -->
+        <view class="ba">发布于{{info.addtime}}</view>
+        <view wx:if="{{info.pro_id>0}}">
+          <text style="font-size:24rpx;color:#999;">学习了</text><text style='color:#f6b30a;font-size:24rpx;padding-left:15rpx;' data-title="{{info.pro_name}}" bindtap="pro" data-proid="{{info.pro_id}}">{{info.pro_name}}</text>
+        </view>
+      </view>
+    </view>     
+<!--1-->
+<view class="scrll_b">
+   {{info.content}}
+</view>
+ <view class="scrll_img" bindtap="like">
+   <image src="../images/mark1.png" wx:if="{{mark}}"></image>
+   <image src="../images/mark.png" wx:else></image> 
+</view>
+<!--删除  -->
+  <view class="dele" bindtap='delquestion' wx:if="{{is_gl==1}}" data-sid='{{info.id}}'>
+    <image src="../images/dele.png"></image>
+  </view>
+</view>
+<!--1-->
+<view class="xian"></view>
+
+
+
+<view class="pin">
+  <image src="../images/gouss.png"></image>
+回答
+</view>
+
+<!--1-->
+  <view class="nodata" wx:if="{{list==''}}">
+    暂无回答
+  </view>
+
+   <view class="scroll_cont aaa" wx:for="{{list}}" wx:if="{{list}}">
+   <view class="scrll_a" style="position: relative">
+      <image class="imagess" src="{{item.avatar}}" bindtap="userinfo" data-userid="{{item.uid}}"></image>
+      <view class="scrll_aa">
+        <text style="font-size:30rpx;color:#ff5722;">{{item.name}}</text>
+        <text class="position_v" style="color:#ff5722;font-size:24rpx;margin-left:4rpx;"  wx:if="{{item.utype>1}}">V</text>
+        <!-- <image class='vips' src="../images/vips.png" wx:if="{{item.utype>1}}"></image> -->
+        <view class="ba">回复于{{item.reply_time}}</view>
+      </view>
+      <text style="color:#ccc;position: absolute;top:-20rpx;right:20rpx;" bindtap='delanswer' wx:if="{{is_qx==1}}" data-aid='{{item.id}}'>x</text>
+   </view>     
+<!--1-->
+<view class="scrll_b" wx:if="{{item.zhui==0 && uid==info.uid}}" bindtap='zhuiwen' data-qid='{{info.id}}' data-aid='{{item.id}}'>
+   {{item.reply_con}}
+</view>
+<view class="scrll_b" wx:else >
+   {{item.reply_con}}
+</view>
+<!--追问  -->
+    <view class="question" wx:if="{{item.zhui==1}}">
+      <text style="color:gray;">追问：</text> 
+      <text wx:if="{{item.ask_state==0 && is_qx==1}}" bindtap='zhuida' data-askid='{{item.askid}}'>{{item.ask_content}}</text>
+      <text wx:else>{{item.ask_content}}</text>
+    </view>
+    <!--追答  -->
+    <view class="question" wx:if="{{item.ask_state==1 && item.zhui==1}}">
+      <text style="color:gray;">追答：</text> {{item.ans_content}}
+    </view>
+</view>
+<!--1-->
+
+<view class="huifu" bindtap="powerDrawer" data-statu="open" wx:if="{{is_qx==1}}">
+  <image src="../images/huida.png"></image>
+  <!-- <view class="xie" >回答</view> -->
+</view>
+
+<!--提示框1-->
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+  <!--drawer content-->
+  <view class="drawer_title" wx:if="{{savetype==2}}">请输入您的追问内容</view>
+  <view class="drawer_title" wx:else>请输入您的回答</view>
+  <view class="drawer_titles"> 
+<form bindsubmit="evaSubmit">
+  <textarea name="evaContent" maxlength="800" value="{{evaContent}}" class="weui-textarea" placeholder="输入您要追问的内容(1-800字)" wx:if="{{savetype==2}}" />
+  <textarea name="evaContent" fixed="true" maxlength="800" value="{{evaContent}}" class="weui-textarea" placeholder="输入您要回复的内容(1-800字)" wx:else />
+  <view class="bang">
+    <button  formType="submit" disabled="{{subdisabled}}" class="btn_ok" type="primary" size="mini">提交</button>
+  </view>
+ </form>
+</view>
+</view>
+<!--mask1-->

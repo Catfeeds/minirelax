@@ -1,0 +1,44 @@
+
+/*改版  */
+.layout_big {
+  display: flex;
+  font-size: 27rpx;
+  font-family: "微软雅黑";
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  box-shadow:2px 2px 4px 3px #ccc;
+  margin-bottom: 20rpx;
+}
+.layout_img  image {
+  width: 130rpx;
+  height: 130rpx;
+  margin-right: 15rpx;
+  border-radius: 10rpx;
+  box-shadow:1px 1px 2px 2px #ccc;
+}
+ .layout_name {
+  margin-bottom: 10rpx ;
+  font-size: 32rpx;
+  margin-top: 8rpx;
+} 
+.layout {
+  padding: 20rpx;
+}
+.layout_recommend {
+  color: #878787;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+}
+.red {
+  width: 20rpx;
+  height: 20rpx;
+  background: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 20rpx;
+}

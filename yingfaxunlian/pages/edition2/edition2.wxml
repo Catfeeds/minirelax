@@ -1,0 +1,13 @@
+<!-- 分类 -->
+<view class="layout">
+  <navigator url="../editionData2/editionData2?catId={{item.id}}&title={{item.name}}" class="layout_big" wx:for="{{list}}">
+    <view class="layout_img">
+      <image src="{{item.img}}"></image>
+    </view>
+    <view class="layout_right" style="margin-top:12rpx;">
+      <view class="layout_name">{{item.name}}<!-- <text class="red"></text>--></view>
+      <view class="layout_recommend">{{item.desc}}</view>
+    </view>
+  </navigator>
+</view>
+
